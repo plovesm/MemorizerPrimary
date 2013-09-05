@@ -25,12 +25,17 @@ public final class R {
         public static final int RelativeLayout1=0x7f090003;
         public static final int aof_spinner=0x7f090005;
         public static final int btn_answer=0x7f090002;
-        public static final int btn_mask=0x7f090008;
+        public static final int btn_easy=0x7f09000c;
+        public static final int btn_hard=0x7f09000e;
+        public static final int btn_mask=0x7f09000a;
+        public static final int btn_medium=0x7f09000d;
         public static final int btn_retry=0x7f090001;
+        public static final int custom_hide_layout=0x7f090008;
+        public static final int difficulty_layout=0x7f09000b;
         public static final int edit_message=0x7f090006;
         public static final int edit_numOfWordsToRemove=0x7f090009;
         public static final int header_choose_aof=0x7f090004;
-        public static final int menu_settings=0x7f09000a;
+        public static final int menu_settings=0x7f09000f;
         public static final int output_view=0x7f090007;
         public static final int view_obfuscated_msg=0x7f090000;
     }
@@ -45,7 +50,10 @@ public final class R {
     public static final class string {
         public static final int aof_prompt=0x7f05000d;
         public static final int app_name=0x7f050000;
+        public static final int button_easy=0x7f050010;
+        public static final int button_hard=0x7f050012;
         public static final int button_hide_answer=0x7f050004;
+        public static final int button_medium=0x7f050011;
         public static final int button_retry=0x7f050002;
         public static final int button_send=0x7f050001;
         public static final int button_show_answer=0x7f050003;
@@ -87,5 +95,6 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f070001;
+        public static final int easy_button=0x7f070002;
     }
 }

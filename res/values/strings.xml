@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Memorizer: LDS Articles of Faith</string>
-    <string name="button_send">Mask the Words</string>
+    <string name="button_send">Hide Words</string>
     <string name="button_retry">Start Over</string>
     <string name="button_show_answer">Show Answer</string>
     <string name="button_hide_answer">Hide Answer</string>
@@ -49,5 +49,8 @@
     </string-array>
         <string name="first_activity_heading">Choose An Article of Faith</string>
         <string name="output_text_hint">Text will display here…</string>
+        <string name="button_easy">Easy</string>
+        <string name="button_medium">Medium</string>
+        <string name="button_hard">Hard</string>
     
 </resources>

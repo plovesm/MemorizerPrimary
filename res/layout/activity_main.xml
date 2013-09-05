@@ -50,29 +50,70 @@
         android:layout_below="@+id/aof_spinner"
         android:hint="@string/output_text_hint"
         android:padding="10dp"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/btn_mask"
+    <RelativeLayout
+        android:id="@+id/custom_hide_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:text="@string/button_send" />
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp" >
 
-    <EditText
-        android:id="@+id/edit_numOfWordsToRemove"
-        android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/edit_numOfWordsToRemove"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="16dp"
+            android:layout_toLeftOf="@+id/btn_mask"
+            android:ems="10"
+            android:hint="@string/edit_numOfWordsToRemove"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/btn_mask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/button_send" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/difficulty_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btn_mask"
-        android:layout_below="@+id/output_view"
-        android:layout_margin="10dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="@string/edit_numOfWordsToRemove"
-        android:inputType="number" />
+        android:layout_above="@+id/custom_hide_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp" >
+
+        <Button
+            android:id="@+id/btn_easy"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_weight="0.33"
+            android:text="@string/button_easy" />
+
+        <Button
+            android:id="@+id/btn_medium"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.34"
+            android:text="@string/button_medium" />
+
+        <Button
+            android:id="@+id/btn_hard"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:text="@string/button_hard" />
+
+    </LinearLayout>
 
 </RelativeLayout>

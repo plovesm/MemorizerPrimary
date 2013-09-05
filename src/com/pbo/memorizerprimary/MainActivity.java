@@ -31,6 +31,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	private Spinner aofSpinner;
 	private EditText numOfWordsText;
 	private Button btnMask;
+	private Button btnEasy;
+	private Button btnMedium;
+	private Button btnHard;
 		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +61,12 @@ public class MainActivity extends Activity implements OnClickListener {
 		numOfWordsText = (EditText) findViewById(R.id.edit_numOfWordsToRemove);
 		btnMask = (Button) findViewById(R.id.btn_mask);
 		btnMask.setOnClickListener(this);
-		
+		btnEasy = (Button) findViewById(R.id.btn_easy);
+		btnEasy.setOnClickListener(this);
+		btnMedium = (Button) findViewById(R.id.btn_medium);
+		btnMedium.setOnClickListener(this);
+		btnHard = (Button) findViewById(R.id.btn_hard);
+		btnHard.setOnClickListener(this);
 		
 		//Then we need to add the items to the dropdown
 		addItemsToAOFSpinner();
@@ -183,6 +191,14 @@ public class MainActivity extends Activity implements OnClickListener {
 			}	
 			
 		}
-		
+		if(v.getId() == R.id.btn_easy){
+			numOfWordsText.setText("4");
+		}
+		if(v.getId() == R.id.btn_medium){
+			numOfWordsText.setText("6");
+		}
+		if(v.getId() == R.id.btn_hard){
+			numOfWordsText.setText("8");
+		}
 	}
 }
