@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Memorizer: LDS Articles of Faith</string>
+    <string name="button_send">Mask the Words</string>
+    <string name="button_retry">Start Over</string>
+    <string name="button_show_answer">Show Answer</string>
+    <string name="button_hide_answer">Hide Answer</string>
+    <string name="menu_settings">Settings</string>
+    <string name="edit_message">Enter message to memorize</string>
+    <string name="edit_numOfWordsToRemove"># of words to hide</string>
+    <string name="obfuscated_text">This is my obfuscated text</string>
+    <string name="title_activity_display_message_obfuscated">Memorize It!</string>
+    <string name="numOfWords_error_nullOrEmpty">Please enter the number of words to hide.</string>
+    <string name="message_error_nullOrEmpty">Please select or enter a message.</string>
+    <string name="hide_error_greaterThanWords">Cannot hide more words than are available.</string>
+	
+	<string name="aof_prompt">Select an Article of Faith</string>
+    <string-array name="aof_names">
+        <item>Article of Faith #1</item>
+        <item>Article of Faith #2</item>
+        <item>Article of Faith #3</item>
+        <item>Article of Faith #4</item>
+        <item>Article of Faith #5</item>
+        <item>Article of Faith #6</item>
+        <item>Article of Faith #7</item>
+        <item>Article of Faith #8</item>
+        <item>Article of Faith #9</item>
+        <item>Article of Faith #10</item>
+        <item>Article of Faith #11</item>
+        <item>Article of Faith #12</item>
+        <item>Article of Faith #13</item>
+    </string-array>
+    
+    <string-array name="aof_list">
+        <item>We believe in God, the Eternal Father, and in His Son, Jesus Christ, and in the Holy Ghost.</item>
+        <item>We believe that men will be punished for their own sins, and not for Adam’s transgression.</item>
+        <item>We believe that through the Atonement of Christ, all mankind may be saved, by obedience to the laws and ordinances of the Gospel.</item>
+        <item>We believe that the first principles and ordinances of the Gospel are: first, Faith in the Lord Jesus Christ; second, Repentance; third, Baptism by immersion for the remission of sins; fourth, Laying on of hands for the gift of the Holy Ghost.</item>
+        <item>We believe that a man must be called of God, by prophecy, and by the laying on of hands by those who are in authority, to preach the Gospel and administer in the ordinances thereof.</item>
+        <item>We believe in the same organization that existed in the Primitive Church, namely, apostles, prophets, pastors, teachers, evangelists, and so forth.</item>
+        <item>We believe in the gift of tongues, prophecy, revelation, visions, healing, interpretation of tongues, and so forth.</item>
+        <item>We believe the Bible to be the word of God as far as it is translated correctly; we also believe the Book of Mormon to be the word of God.</item>
+        <item>We believe all that God has revealed, all that He does now reveal, and we believe that He will yet reveal many great and important things pertaining to the Kingdom of God.</item>
+        <item>We believe in the literal gathering of Israel and in the restoration of the Ten Tribes; that Zion (the New Jerusalem) will be built upon the American continent; that Christ will reign personally upon the earth; and, that the earth will be renewed and receive its paradisiacal glory.</item>
+        <item>We claim the privilege of worshiping Almighty God according to the dictates of our own conscience, and allow all men the same privilege, let them worship how, where, or what they may.</item>
+        <item>We believe in being subject to kings, presidents, rulers, and magistrates, in obeying, honoring, and sustaining the law</item>
+        <item>We believe in being honest, true, chaste, benevolent, virtuous, and in doing good to all men; indeed, we may say that we follow the admonition of Paul-We believe all things, we hope all things, we have endured many things, and hope to be able to endure all things. If there is anything virtuous, lovely, or of good report or praiseworthy, we seek after these things.</item>
+    </string-array>
+        <string name="first_activity_heading">Choose An Article of Faith</string>
+        <string name="output_text_hint">Text will display here…</string>
+    
+</resources>
