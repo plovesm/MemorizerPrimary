@@ -1,9 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/RelativeLayout1"
+    android:id="@+id/MainPortraitView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_primary"
+    android:background="@drawable/bg_primarymemorizer"
     android:orientation="vertical"
     android:padding="5dp" >
 
@@ -44,76 +44,74 @@
 
     <TextView
         android:id="@+id/output_view"
+        style="@style/mediumText"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/difficulty_layout"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/aof_spinner"
         android:hint="@string/output_text_hint"
-        android:padding="10dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="24sp" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <RelativeLayout
-        android:id="@+id/custom_hide_layout"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btn_mask"
+        style="@style/main_button"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="10dp" >
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="@string/button_send" />
 
-        <EditText
-            android:id="@+id/edit_numOfWordsToRemove"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginTop="16dp"
-            android:layout_toLeftOf="@+id/btn_mask"
-            android:ems="10"
-            android:hint="@string/edit_numOfWordsToRemove"
-            android:inputType="number" />
-
-        <Button
-            android:id="@+id/btn_mask"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:text="@string/button_send" />
-    </RelativeLayout>
+    <EditText
+        android:id="@+id/edit_numOfWordsToRemove"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_mask"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="@string/edit_numOfWordsToRemove"
+        android:inputType="number" />
 
     <LinearLayout
         android:id="@+id/difficulty_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/custom_hide_layout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="19dp" >
+        android:layout_above="@+id/edit_numOfWordsToRemove"
+        android:layout_alignLeft="@+id/output_view"
+        android:orientation="horizontal" >
 
         <Button
             android:id="@+id/btn_easy"
+            style="@style/easy_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_gravity="left|center_vertical"
+            android:layout_margin="5dp"
             android:layout_weight="0.33"
             android:text="@string/button_easy" />
 
         <Button
             android:id="@+id/btn_medium"
+            style="@style/med_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_margin="5dp"
             android:layout_weight="0.34"
             android:text="@string/button_medium" />
 
         <Button
             android:id="@+id/btn_hard"
+            style="@style/hard_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_margin="5dp"
             android:layout_weight="0.33"
             android:text="@string/button_hard" />
-
     </LinearLayout>
 
 </RelativeLayout>

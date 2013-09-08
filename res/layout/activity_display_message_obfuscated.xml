@@ -2,38 +2,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_primarymemorizer"
     tools:context=".DisplayMessageObfuscatedActivity" >
 
     <TextView
         android:id="@+id/view_obfuscated_msg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/ButtonBankLayout"
         android:layout_margin="5dp"
         android:layout_marginTop="20dp"
+        android:hint="@string/obf_text_hint"
         android:padding="5dp"
         android:paddingTop="20dp"
         android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/btn_retry"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/ButtonBankLayout"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="10dp"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:text="@string/button_retry" />
+        android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/btn_answer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_retry"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="5dp"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:text="@string/button_show_answer" />
+        <Button
+            android:id="@+id/btn_answer"
+            style="@style/secondary_button"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="5dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/button_show_answer" />
+
+        <Button
+            android:id="@+id/btn_retry"
+            style="@style/main_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/button_retry" />
+
+    </LinearLayout>
 
 </RelativeLayout>

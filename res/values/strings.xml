@@ -52,5 +52,6 @@
         <string name="button_easy">Easy</string>
         <string name="button_medium">Medium</string>
         <string name="button_hard">Hard</string>
+        <string name="obf_text_hint">Obfuscated Text Here...</string>
     
 </resources>

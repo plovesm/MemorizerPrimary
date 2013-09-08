@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -58,6 +59,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		//Initialize all of the components
 		aofSpinner = (Spinner) findViewById(R.id.aof_spinner);
 		msgInputText = (TextView) findViewById(R.id.output_view);
+		msgInputText.setMovementMethod(new ScrollingMovementMethod());
 		numOfWordsText = (EditText) findViewById(R.id.edit_numOfWordsToRemove);
 		btnMask = (Button) findViewById(R.id.btn_mask);
 		btnMask.setOnClickListener(this);
