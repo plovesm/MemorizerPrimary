@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.pbo.memorizerprimary"
+    package="com.pbo.memorizer.primary"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.pbo.memorizerprimary.MainActivity"
+            android:name="com.pbo.memorizer.primary.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -24,9 +24,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.pbo.memorizerprimary.DisplayMessageObfuscatedActivity"
+            android:name="com.pbo.memorizer.primary.DisplayMessageObfuscatedActivity"
             android:label="@string/title_activity_display_message_obfuscated"
-            android:parentActivityName="com.pbo.memorizerprimary.MainActivity"
+            android:parentActivityName="com.pbo.memorizer.primary.MainActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

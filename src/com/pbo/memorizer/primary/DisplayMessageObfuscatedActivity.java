@@ -1,4 +1,4 @@
-package com.pbo.memorizerprimary;
+package com.pbo.memorizer.primary;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -13,8 +13,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-import com.pbo.memorizer.control.Obfuscator;
+
 import com.pbo.memorizer.model.MessageModel;
+import com.pbo.memorizer.util.MemorizerUtils;
 
 public class DisplayMessageObfuscatedActivity extends Activity implements OnClickListener{
 
@@ -22,7 +23,7 @@ public class DisplayMessageObfuscatedActivity extends Activity implements OnClic
 	private Button btnRetry;
 	private Button btnAnswer;
 	
-	private MessageModel originalMsg;
+	private MessageModel msgModel;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,22 +59,13 @@ public class DisplayMessageObfuscatedActivity extends Activity implements OnClic
 		
 		//Retrieve the origin Intent
 		Intent intent = getIntent();
-		originalMsg = (MessageModel) intent.getSerializableExtra(MainActivity.MESSAGE_MODEL);
+		msgModel = (MessageModel) intent.getSerializableExtra(MainActivity.MESSAGE_MODEL);
 		
-		//Instantiate the Obfuscator
-		Obfuscator ob = new Obfuscator();
-		
-		//Determine how many words are in the message
-		int numOfWords = ob.countWords(originalMsg.getMessage());
-		int numToMask = originalMsg.getNumWordsToHide();
-		
-		//Check to make sure the number of words is legit and then obfuscate it.
-		if(numToMask < numOfWords && numToMask != 0){
-			originalMsg.setObfMessage(ob.obfuscateString(originalMsg.getMessage(), numToMask));
-		}
+		//Obfuscate the message and then set it back to the model
+		msgModel = MemorizerUtils.obfuscateMessage(msgModel);
 				
 		//Create a text view to output the obfuscated message
-		obfMessageView.setText(originalMsg.getObfMessage());
+		obfMessageView.setText(msgModel.getObfMessage());
 		
 	}
 
@@ -104,17 +96,17 @@ public class DisplayMessageObfuscatedActivity extends Activity implements OnClic
 
 	private void toggleAnswer(){
 		//Toggle answer between obfuscated and full
-		if(obfMessageView.getText().equals(originalMsg.getObfMessage())){
+		if(obfMessageView.getText().equals(msgModel.getObfMessage())){
 			
 			//Set text to original
-			obfMessageView.setText(originalMsg.getMessage());
+			obfMessageView.setText(msgModel.getMessage());
 			btnAnswer.setText(R.string.button_hide_answer);
 			
 		}
 		else{
 			
 			//Set text to obfuscated
-			obfMessageView.setText(originalMsg.getObfMessage());
+			obfMessageView.setText(msgModel.getObfMessage());
 			btnAnswer.setText(R.string.button_show_answer);
 		}
 	}

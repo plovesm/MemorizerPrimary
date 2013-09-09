@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.pbo.memorizerprimary;
+package com.pbo.memorizer.primary;
 
 public final class R {
     public static final class array {
@@ -30,23 +30,24 @@ public final class R {
         public static final int ic_primary=0x7f020003;
     }
     public static final class id {
-        public static final int ButtonBankLayout=0x7f090000;
-        public static final int MainPortraitView=0x7f090005;
-        public static final int ScrollViewObfText=0x7f090003;
-        public static final int ScrollViewOutputMsg=0x7f09000e;
-        public static final int aof_spinner=0x7f090007;
-        public static final int btn_answer=0x7f090001;
-        public static final int btn_easy=0x7f09000b;
-        public static final int btn_hard=0x7f09000d;
-        public static final int btn_mask=0x7f090008;
-        public static final int btn_medium=0x7f09000c;
-        public static final int btn_retry=0x7f090002;
-        public static final int difficulty_layout=0x7f09000a;
-        public static final int edit_numOfWordsToRemove=0x7f090009;
-        public static final int header_choose_aof=0x7f090006;
-        public static final int menu_settings=0x7f090010;
-        public static final int output_view=0x7f09000f;
-        public static final int view_obfuscated_msg=0x7f090004;
+        public static final int ButtonBankLayout=0x7f090001;
+        public static final int MainPortraitView=0x7f090006;
+        public static final int ScrollViewObfText=0x7f090004;
+        public static final int ScrollViewOutputMsg=0x7f09000f;
+        public static final int aof_spinner=0x7f090008;
+        public static final int btn_answer=0x7f090002;
+        public static final int btn_easy=0x7f09000c;
+        public static final int btn_hard=0x7f09000e;
+        public static final int btn_mask=0x7f090009;
+        public static final int btn_medium=0x7f09000d;
+        public static final int btn_retry=0x7f090003;
+        public static final int difficulty_layout=0x7f09000b;
+        public static final int edit_numOfWordsToRemove=0x7f09000a;
+        public static final int header_choose_aof=0x7f090007;
+        public static final int menu_settings=0x7f090011;
+        public static final int output_heading=0x7f090000;
+        public static final int output_view=0x7f090010;
+        public static final int view_obfuscated_msg=0x7f090005;
     }
     public static final class layout {
         public static final int activity_display_message_obfuscated=0x7f030000;
@@ -75,6 +76,7 @@ public final class R {
         public static final int numOfWords_error_nullOrEmpty=0x7f05000a;
         public static final int obf_text_hint=0x7f050013;
         public static final int obfuscated_text=0x7f050008;
+        public static final int obfuscation_heading=0x7f050014;
         public static final int output_text_hint=0x7f05000f;
         public static final int title_activity_display_message_obfuscated=0x7f050009;
     }

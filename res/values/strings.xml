@@ -10,7 +10,7 @@
     <string name="edit_message">Enter message to memorize</string>
     <string name="edit_numOfWordsToRemove"># of words to hide</string>
     <string name="obfuscated_text">This is my obfuscated text</string>
-    <string name="title_activity_display_message_obfuscated">Memorize It!</string>
+    <string name="title_activity_display_message_obfuscated">Memorizer: LDS Articles of Faith</string>
     <string name="numOfWords_error_nullOrEmpty">Please enter the number of words to hide.</string>
     <string name="message_error_nullOrEmpty">Please select or enter a message.</string>
     <string name="hide_error_greaterThanWords">Cannot hide more words than are available.</string>
@@ -45,7 +45,7 @@
         <item>We believe in the literal gathering of Israel and in the restoration of the Ten Tribes; that Zion (the New Jerusalem) will be built upon the American continent; that Christ will reign personally upon the earth; and, that the earth will be renewed and receive its paradisiacal glory.</item>
         <item>We claim the privilege of worshiping Almighty God according to the dictates of our own conscience, and allow all men the same privilege, let them worship how, where, or what they may.</item>
         <item>We believe in being subject to kings, presidents, rulers, and magistrates, in obeying, honoring, and sustaining the law</item>
-        <item>We believe in being honest, true, chaste, benevolent, virtuous, and in doing good to all men; indeed, we may say that we follow the admonition of Paul-We believe all things, we hope all things, we have endured many things, and hope to be able to endure all things. If there is anything virtuous, lovely, or of good report or praiseworthy, we seek after these things.</item>
+        <item>We believe in being honest, true, chaste, benevolent, virtuous, and in doing good to all men; indeed, we may say that we follow the admonition of Paul- We believe all things, we hope all things, we have endured many things, and hope to be able to endure all things. If there is anything virtuous, lovely, or of good report or praiseworthy, we seek after these things.</item>
     </string-array>
         <string name="first_activity_heading">Choose An Article of Faith</string>
         <string name="output_text_hint">Text will display here…</string>
@@ -53,5 +53,6 @@
         <string name="button_medium">Medium</string>
         <string name="button_hard">Hard</string>
         <string name="obf_text_hint">Obfuscated Text Here...</string>
+        <string name="obfuscation_heading">Memorize It!</string>
     
 </resources>

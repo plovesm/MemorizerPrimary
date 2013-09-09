@@ -18,7 +18,20 @@ public class MessageModel implements Serializable {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-
+	
+	public String[] getWordsAsArray(){
+		
+		String[] msgWords = null;
+		
+		if(!StringUtils.isNullorEmpty(this.message)){
+			
+			//Split the message on spaces.
+			msgWords = this.message.split(" ");
+		}
+		
+		return msgWords;
+	}
+	
 	public String getObfMessage() {
 		return obfMessage;
 	}
@@ -26,10 +39,23 @@ public class MessageModel implements Serializable {
 	public void setObfMessage(String obfMessage) {
 		this.obfMessage = obfMessage;
 	}
-
+	
+	public String[] getObfMessageWordsAsArray(){
+		
+		String[] msgWords = null;
+		
+		if(!StringUtils.isNullorEmpty(this.obfMessage)){
+			
+			//Split the message on spaces.
+			msgWords = this.obfMessage.split(" ");
+		}
+		
+		return msgWords;
+	}
 	public int getTotalNumOfWords() {
+		
 		if(!StringUtils.isNullorEmpty(message)){
-			return ((message.split(" ")).length);
+			return (getWordsAsArray().length);
 		}
 		
 		return 0;

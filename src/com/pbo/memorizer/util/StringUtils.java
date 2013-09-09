@@ -11,8 +11,4 @@ public class StringUtils {
 		return false;
 	}
 	
-	public StringUtils() {
-		// TODO Auto-generated constructor stub
-	}
-
 }

@@ -1,7 +1,8 @@
-package com.pbo.memorizerprimary;
+package com.pbo.memorizer.primary;
 
 
 import com.pbo.memorizer.model.MessageModel;
+import com.pbo.memorizer.primary.R;
 import com.pbo.memorizer.util.StringUtils;
 
 import android.app.Activity;
