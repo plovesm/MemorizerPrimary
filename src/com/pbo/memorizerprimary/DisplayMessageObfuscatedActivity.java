@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,7 +37,7 @@ public class DisplayMessageObfuscatedActivity extends Activity implements OnClic
 	private void buildComponents(){
 		//Instantiate the UI elements
 		obfMessageView = (TextView) findViewById(R.id.view_obfuscated_msg);
-		obfMessageView.setMovementMethod(new ScrollingMovementMethod());
+		//obfMessageView.setMovementMethod(new ScrollingMovementMethod());
 		btnRetry = (Button) findViewById(R.id.btn_retry);
 		btnAnswer = (Button) findViewById(R.id.btn_answer);
 		

@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.pbo.memorizerprimary.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +26,8 @@
         <activity
             android:name="com.pbo.memorizerprimary.DisplayMessageObfuscatedActivity"
             android:label="@string/title_activity_display_message_obfuscated"
-            android:parentActivityName="com.pbo.memorizerprimary.MainActivity" >
+            android:parentActivityName="com.pbo.memorizerprimary.MainActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pbo.memorizerprimary.MainActivity" />

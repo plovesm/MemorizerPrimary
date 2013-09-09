@@ -13,45 +13,24 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:text="@string/first_activity_heading"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
         android:id="@+id/aof_spinner"
+        style="@style/mediumText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/header_choose_aof"
         android:layout_marginTop="20dp"
         android:entries="@array/aof_names"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:paddingTop="10dp"
         android:prompt="@string/aof_prompt" />
-
-    <EditText
-        android:id="@+id/edit_message"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/aof_spinner"
-        android:layout_margin="10dp"
-        android:ems="10"
-        android:hint="@string/edit_message"
-        android:textSize="20sp"
-        android:visibility="gone" >
-
-        <requestFocus />
-    </EditText>
-
-    <TextView
-        android:id="@+id/output_view"
-        style="@style/mediumText"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_above="@+id/difficulty_layout"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/aof_spinner"
-        android:hint="@string/output_text_hint"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
         android:id="@+id/btn_mask"
@@ -71,16 +50,16 @@
         android:layout_above="@+id/btn_mask"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
-        android:ems="10"
+        android:ems="20"
         android:hint="@string/edit_numOfWordsToRemove"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:id="@+id/difficulty_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/edit_numOfWordsToRemove"
-        android:layout_alignLeft="@+id/output_view"
         android:orientation="horizontal" >
 
         <Button
@@ -113,5 +92,28 @@
             android:layout_weight="0.33"
             android:text="@string/button_hard" />
     </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/ScrollViewOutputMsg"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/difficulty_layout"
+        android:layout_below="@+id/aof_spinner"
+        android:layout_centerHorizontal="true" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/output_view"
+                style="@style/mediumText"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:hint="@string/output_text_hint"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

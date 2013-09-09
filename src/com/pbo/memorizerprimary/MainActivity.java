@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -59,7 +58,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		//Initialize all of the components
 		aofSpinner = (Spinner) findViewById(R.id.aof_spinner);
 		msgInputText = (TextView) findViewById(R.id.output_view);
-		msgInputText.setMovementMethod(new ScrollingMovementMethod());
+		//msgInputText.setMovementMethod(new ScrollingMovementMethod());
 		numOfWordsText = (EditText) findViewById(R.id.edit_numOfWordsToRemove);
 		btnMask = (Button) findViewById(R.id.btn_mask);
 		btnMask.setOnClickListener(this);
@@ -193,14 +192,40 @@ public class MainActivity extends Activity implements OnClickListener {
 			}	
 			
 		}
+		
 		if(v.getId() == R.id.btn_easy){
-			numOfWordsText.setText("4");
+			numOfWordsText.setText(calculateDifficulty(.25));
 		}
 		if(v.getId() == R.id.btn_medium){
-			numOfWordsText.setText("6");
+			numOfWordsText.setText(calculateDifficulty(.5));
 		}
 		if(v.getId() == R.id.btn_hard){
-			numOfWordsText.setText("8");
+			numOfWordsText.setText(calculateDifficulty(.75));
 		}
+		
+			
+		
+	}
+	
+	private String calculateDifficulty(double percentage){
+		String numOfWords = "";
+		MessageModel msgModel = new MessageModel();
+		msgModel.setMessage(msgInputText.getText().toString());
+		
+		if(msgModel != null && msgModel.getMessage() != null){
+			if(percentage >= 1){
+				return String.valueOf(msgModel.getTotalNumOfWords()); 
+			}
+			else{
+				double value = Math.round(msgModel.getTotalNumOfWords() * percentage);
+				
+				Double dblVal = Double.valueOf(value);
+				
+				//Set the num of words
+				numOfWords = Integer.toString(dblVal.intValue());
+								
+			}
+		}
+		return numOfWords;
 	}
 }
