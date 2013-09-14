@@ -109,6 +109,7 @@ public final class R {
         public static final int AppTheme=0x7f070001;
         public static final int easy_button=0x7f070004;
         public static final int hard_button=0x7f070006;
+        public static final int heading_v1=0x7f07000a;
         public static final int main_button=0x7f070008;
         public static final int med_button=0x7f070005;
         public static final int mediumText=0x7f070003;

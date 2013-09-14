@@ -49,4 +49,8 @@
     <style name="secondary_button">
         <item name="android:background">@color/secondaryblue</item>
     </style>
+    <style name="heading_v1">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">italic</item>        
+    </style>
 </resources>

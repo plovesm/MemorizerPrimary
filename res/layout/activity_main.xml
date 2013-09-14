@@ -9,12 +9,14 @@
 
     <TextView
         android:id="@+id/header_choose_aof"
+        style="@style/heading_v1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:focusable="true"
         android:focusableInTouchMode="true"
+        android:padding="10dp"
         android:text="@string/first_activity_heading"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
