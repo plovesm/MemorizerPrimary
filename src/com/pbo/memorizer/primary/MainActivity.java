@@ -142,6 +142,14 @@ public class MainActivity extends Activity implements OnClickListener {
 			
 			numOfWordsToHide = Integer.valueOf(chkNumOfWordsText.toString());
 			
+			if(numOfWordsToHide == 0){
+				//Can't have a zero number of words to mask
+				Toast.makeText(this, 
+						R.string.numOfWords_error_nullOrEmpty,
+						Toast.LENGTH_SHORT).show();
+				
+				return null;
+			}
 			if(numOfWordsToHide >= messageObj.getTotalNumOfWords()){
 				//Can't have a null or empty number of words to mask
 				Toast.makeText(this, 
@@ -150,6 +158,7 @@ public class MainActivity extends Activity implements OnClickListener {
 				
 				return null;
 			}
+			
 		}
 		else{
 			Log.d("NumToHideNull", "Number to hide is null or empty");
