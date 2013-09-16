@@ -1,6 +1,8 @@
 package com.pbo.memorizer.primary;
 
 
+import java.util.List;
+
 import com.pbo.memorizer.model.MessageModel;
 import com.pbo.memorizer.primary.R;
 import com.pbo.memorizer.util.StringUtils;
@@ -27,6 +29,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	public final static String MESSAGE_MODEL = "com.pbo.memorizer.messageModel";
 	
 	private boolean debugMode = true;
+	
+	private List aofTotalList;
+	private MessageModel currentAof;
 	
 	private TextView msgInputText;
 	private Spinner aofSpinner;
