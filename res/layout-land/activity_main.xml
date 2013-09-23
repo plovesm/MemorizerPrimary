@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/MainPortraitView"
     android:layout_width="match_parent"
@@ -12,6 +12,8 @@
         style="@style/heading_v1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:padding="10dp"
@@ -50,59 +52,61 @@
     <ListView
         android:id="@+id/aof_select_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/difficulty_layout"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/header_choose_aof"
         android:layout_weight="1"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:padding="2dp" >
-
     </ListView>
 
-    <LinearLayout
-        android:id="@+id/difficulty_layout"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btn_easy"
+        style="@style/easy_button"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/header_choose_aof"
+        android:layout_below="@+id/aof_select_view"
+        android:layout_gravity="left|center_vertical"
         android:layout_marginBottom="2dp"
-        android:orientation="horizontal" >
+        android:layout_marginTop="4dp"
+        android:layout_weight="0.33"
+        android:text="@string/button_easy" />
 
-        <Button
-            android:id="@+id/btn_easy"
-            style="@style/easy_button"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical"
-            android:layout_marginBottom="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_weight="0.33"
-            android:text="@string/button_easy" />
+    <Button
+        android:id="@+id/btn_medium"
+        style="@style/med_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btn_easy"
+        android:layout_alignTop="@+id/btn_easy"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_margin="2dp"
+        android:layout_weight="0.34"
+        android:text="@string/button_medium" />
 
-        <Button
-            android:id="@+id/btn_medium"
-            style="@style/med_button"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:layout_margin="2dp"
-            android:layout_weight="0.34"
-            android:text="@string/button_medium" />
-
-        <Button
-            android:id="@+id/btn_hard"
-            style="@style/hard_button"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:layout_marginBottom="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_weight="0.33"
-            android:text="@string/button_hard" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/btn_hard"
+        style="@style/hard_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btn_easy"
+        android:layout_alignTop="@+id/btn_easy"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_weight="0.33"
+        android:text="@string/button_hard" />
 
     <Button
         android:id="@+id/btn_mask"
         style="@style/main_button"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
         android:text="@string/button_send" />
@@ -133,4 +137,4 @@
     </ScrollView>
     -->
 
-</LinearLayout>
+</RelativeLayout>

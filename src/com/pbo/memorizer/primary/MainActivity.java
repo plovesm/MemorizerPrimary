@@ -1,11 +1,8 @@
 package com.pbo.memorizer.primary;
 
 
+import java.util.ArrayList;
 import java.util.List;
-
-import com.pbo.memorizer.model.MessageModel;
-import com.pbo.memorizer.primary.R;
-import com.pbo.memorizer.util.StringUtils;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,12 +14,16 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.pbo.memorizer.adapters.MessageListAdapter;
+import com.pbo.memorizer.model.MessageModel;
+import com.pbo.memorizer.util.StringUtils;
 
 public class MainActivity extends Activity implements OnClickListener {
 	
@@ -30,11 +31,11 @@ public class MainActivity extends Activity implements OnClickListener {
 	
 	private boolean debugMode = true;
 	
-	private List aofTotalList;
+	private List<MessageModel> aofTotalList = new ArrayList<MessageModel>();
 	private MessageModel currentAof;
 	
+	private ListView aofSelectionList;
 	private TextView msgInputText;
-	private Spinner aofSpinner;
 	private EditText numOfWordsText;
 	private Button btnMask;
 	private Button btnEasy;
@@ -62,10 +63,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	private void buildComponents(){
 		
 		//Initialize all of the components
-		aofSpinner = (Spinner) findViewById(R.id.aof_spinner);
-		msgInputText = (TextView) findViewById(R.id.output_view);
-		//msgInputText.setMovementMethod(new ScrollingMovementMethod());
-		numOfWordsText = (EditText) findViewById(R.id.edit_numOfWordsToRemove);
+		aofSelectionList = (ListView) findViewById(R.id.aof_select_view);
 		btnMask = (Button) findViewById(R.id.btn_mask);
 		btnMask.setOnClickListener(this);
 		btnEasy = (Button) findViewById(R.id.btn_easy);
@@ -86,37 +84,46 @@ public class MainActivity extends Activity implements OnClickListener {
 		Resources res = getResources();
 		
 		//Capture the list of aof values
-		final String[] aofValueList = res.getStringArray(R.array.aof_list);
+		//final String[] aofValueList = res.getStringArray(R.array.aof_list);
+		final String[] aofFullList = res.getStringArray(R.array.aof_FullList);
 		
-		//Next, set up the drop down domain
-		ArrayAdapter<CharSequence> aofNameList = ArrayAdapter.createFromResource(this, 
-				R.array.aof_names, android.R.layout.simple_spinner_item);
+		Log.d("Checking List ...", "Number of Messages: " + aofFullList.length);
 		
-		//And assign it to the drop down
-		aofNameList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		
-		//Add the listener to the drop down and set the text 
-		aofSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+		for(String aof : aofFullList){
 
-			@Override
-			public void onItemSelected(AdapterView<?> parent, View view,
-					int pos, long id) {
-				
-				//Take the selection and populate the text field
-				msgInputText.setText(aofValueList[pos]);
-				
-			}
+			if(aof.contains("~")){
 
-			@Override
-			public void onNothingSelected(AdapterView<?> arg0) {
-				if(debugMode == true){
-					Log.d("No Selection", "Nothing was selected in the spinner");
+				//First split it into name value pairs
+				String[] aofSplit = aof.split("~");
+				
+				//Then create a new object and add it to list
+				if(aofSplit.length == 2){
+					
+					aofTotalList.add(new MessageModel(aofSplit[0], aofSplit[1]));
+				
 				}
+				
+				
 			}
+			
+		}
+		
+		MessageListAdapter msgAdapter = new MessageListAdapter(this, R.layout.aof_selection_list, aofTotalList);
+		
+		aofSelectionList.setAdapter(msgAdapter);
+		
+		// TODO
+		aofSelectionList.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                            int position, long id) {
+            	
+            	// When clicked, show a toast with the TextView text
+                Toast.makeText(getApplicationContext(),
+                		"Selected: " + ((MessageModel)aofSelectionList.getSelectedItem()).getSubject(), 
+                		Toast.LENGTH_SHORT).show();
+            }
 		});
-		
-		
-		aofSpinner.setAdapter(aofNameList);
 	}
 	
 	
@@ -207,17 +214,24 @@ public class MainActivity extends Activity implements OnClickListener {
 			}	
 			
 		}
-		
-		if(v.getId() == R.id.btn_easy){
+		else if(v.getId() == R.id.btn_easy){
 			numOfWordsText.setText(calculateDifficulty(.25));
+			//btnEasy.setBackgroundColor(R.color.secondaryblue);
 		}
-		if(v.getId() == R.id.btn_medium){
+		else if(v.getId() == R.id.btn_medium){
 			numOfWordsText.setText(calculateDifficulty(.5));
 		}
-		if(v.getId() == R.id.btn_hard){
+		else if(v.getId() == R.id.btn_hard){
 			numOfWordsText.setText(calculateDifficulty(.75));
 		}
+		else if(v.getId() == R.id.aof_select_view){
+			
+			//Can't have a null or empty number of words to mask
+			Toast.makeText(this, 
+					"Selected: " + ((MessageModel)aofSelectionList.getSelectedItem()).getSubject(),
+					Toast.LENGTH_SHORT).show();
 		
+		}
 			
 		
 	}

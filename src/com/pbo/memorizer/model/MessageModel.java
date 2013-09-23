@@ -7,10 +7,19 @@ import com.pbo.memorizer.util.StringUtils;
 public class MessageModel implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	private String subject;
 	private String message;
 	private String obfMessage = "Message not found"; //Default
 	private int numWordsToHide;
 	
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
 	public String getMessage() {
 		return message;
 	}
@@ -85,4 +94,10 @@ public class MessageModel implements Serializable {
 		setNumWordsToHide(numWordsToHide);
 	}
 	
+	public MessageModel(String name, String msg) {
+		
+		setSubject(name);
+		setMessage(msg);
+		
+	}
 }

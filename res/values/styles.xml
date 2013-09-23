@@ -25,15 +25,15 @@
     </style>
     <style name="easy_button">
         <item name="android:background">@color/lightgreen</item> 
-        <item name="android:padding">2dp</item>
+        
     </style>
     <style name="med_button">
         <item name="android:background">@color/lightyellow</item> 
-        <item name="android:padding">2dp</item>
+        
     </style>
     <style name="hard_button">
         <item name="android:background">@color/lightred</item> 
-        <item name="android:padding">2dp</item>
+        
     </style>
 	<style name="submit_button">
         <item name="android:background">@drawable/btn_submit</item>
@@ -52,5 +52,15 @@
     <style name="heading_v1">
         <item name="android:textSize">30sp</item>
         <item name="android:textStyle">italic</item>        
+    </style>
+    <style name="listHeading">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">11dp</item>
+        <item name="android:padding">5dp</item>
+    </style>
+    <style name="listBody">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">11dp</item>
+        <item name="android:padding">5dp</item>
     </style>
 </resources>

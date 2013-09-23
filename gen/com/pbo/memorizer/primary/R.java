@@ -9,6 +9,7 @@ package com.pbo.memorizer.primary;
 
 public final class R {
     public static final class array {
+        public static final int aof_FullList=0x7f060002;
         public static final int aof_list=0x7f060001;
         public static final int aof_names=0x7f060000;
     }
@@ -33,25 +34,26 @@ public final class R {
         public static final int ButtonBankLayout=0x7f090001;
         public static final int MainPortraitView=0x7f090006;
         public static final int ScrollViewObfText=0x7f090004;
-        public static final int ScrollViewOutputMsg=0x7f09000f;
-        public static final int aof_spinner=0x7f090008;
+        public static final int aof_list_view_item=0x7f09000e;
+        public static final int aof_listing_body=0x7f090010;
+        public static final int aof_listing_title=0x7f09000f;
+        public static final int aof_select_view=0x7f090008;
         public static final int btn_answer=0x7f090002;
-        public static final int btn_easy=0x7f09000c;
-        public static final int btn_hard=0x7f09000e;
-        public static final int btn_mask=0x7f090009;
-        public static final int btn_medium=0x7f09000d;
+        public static final int btn_easy=0x7f09000a;
+        public static final int btn_hard=0x7f09000c;
+        public static final int btn_mask=0x7f09000d;
+        public static final int btn_medium=0x7f09000b;
         public static final int btn_retry=0x7f090003;
-        public static final int difficulty_layout=0x7f09000b;
-        public static final int edit_numOfWordsToRemove=0x7f09000a;
+        public static final int difficulty_layout=0x7f090009;
         public static final int header_choose_aof=0x7f090007;
         public static final int menu_settings=0x7f090011;
         public static final int output_heading=0x7f090000;
-        public static final int output_view=0x7f090010;
         public static final int view_obfuscated_msg=0x7f090005;
     }
     public static final class layout {
         public static final int activity_display_message_obfuscated=0x7f030000;
         public static final int activity_main=0x7f030001;
+        public static final int aof_selection_list=0x7f030002;
     }
     public static final class menu {
         public static final int activity_display_message_obfuscated=0x7f080000;
@@ -110,6 +112,8 @@ public final class R {
         public static final int easy_button=0x7f070004;
         public static final int hard_button=0x7f070006;
         public static final int heading_v1=0x7f07000a;
+        public static final int listBody=0x7f07000c;
+        public static final int listHeading=0x7f07000b;
         public static final int main_button=0x7f070008;
         public static final int med_button=0x7f070005;
         public static final int mediumText=0x7f070003;
