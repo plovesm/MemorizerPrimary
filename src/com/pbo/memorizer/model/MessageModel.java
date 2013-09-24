@@ -2,6 +2,7 @@ package com.pbo.memorizer.model;
 
 import java.io.Serializable;
 
+import com.pbo.memorizer.util.MemorizerConstants;
 import com.pbo.memorizer.util.StringUtils;
 
 public class MessageModel implements Serializable {
@@ -71,6 +72,10 @@ public class MessageModel implements Serializable {
 	}
 
 	public int getNumWordsToHide() {
+		if(this.numWordsToHide <= 0){
+			this.calcNumWordsToHide(MemorizerConstants.EASY_FACTOR);
+		}
+		
 		return numWordsToHide;
 	}
 
@@ -78,8 +83,26 @@ public class MessageModel implements Serializable {
 		this.numWordsToHide = numWordsToHide;
 	}
 	
-	public MessageModel() {
+	public void calcNumWordsToHide(double percentageToHide){
+		
+		if(this.getMessage() != null){
+			if(percentageToHide >= 1){
+				this.setNumWordsToHide(this.getTotalNumOfWords()); 
+			}
+			else{
+				double value = Math.round(this.getTotalNumOfWords() * percentageToHide);
 				
+				Double dblVal = Double.valueOf(value);
+				
+				//Set the num of words
+				this.setNumWordsToHide(dblVal.intValue());
+								
+			}
+		}
+	}
+	
+	public MessageModel(){
+		
 	}
 	
 	public MessageModel(String msg) {

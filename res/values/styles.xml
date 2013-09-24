@@ -55,12 +55,15 @@
     </style>
     <style name="listHeading">
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">11dp</item>
-        <item name="android:padding">5dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingLeft">5dp</item>
+        
     </style>
     <style name="listBody">
         <item name="android:textStyle">normal</item>
-        <item name="android:textSize">11dp</item>
+        <item name="android:textSize">10sp</item>
         <item name="android:padding">5dp</item>
+        <item name="android:paddingTop">2dp</item>
     </style>
 </resources>
