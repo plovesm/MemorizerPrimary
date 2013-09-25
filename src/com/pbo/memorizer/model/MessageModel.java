@@ -12,6 +12,7 @@ public class MessageModel implements Serializable {
 	private String message;
 	private String obfMessage = "Message not found"; //Default
 	private int numWordsToHide;
+	private boolean selected = false;
 	
 	public String getSubject() {
 		return subject;
@@ -101,6 +102,14 @@ public class MessageModel implements Serializable {
 		}
 	}
 	
+	public boolean isSelected() {
+		return selected;
+	}
+
+	public void setSelected(boolean selected) {
+		this.selected = selected;
+	}
+
 	public MessageModel(){
 		
 	}

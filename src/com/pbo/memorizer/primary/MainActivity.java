@@ -7,19 +7,16 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.text.Editable;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pbo.memorizer.adapters.MessageListAdapter;
@@ -31,6 +28,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	
 	public final static String MESSAGE_MODEL = "com.pbo.memorizer.messageModel";
 	
+	@SuppressWarnings("unused")
 	private boolean debugMode = true;
 	
 	private List<MessageModel> aofTotalList = new ArrayList<MessageModel>();
@@ -87,9 +85,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		//final String[] aofValueList = res.getStringArray(R.array.aof_list);
 		final String[] aofFullList = res.getStringArray(R.array.aof_FullList);
 		
-		Log.d("Checking List ...", "Number of Messages: " + aofFullList.length);
-		
-		
+				
 		for(String aof : aofFullList){
 			//Split the string into a name value pair
 			if(aof.contains("~")){
@@ -119,15 +115,29 @@ public class MainActivity extends Activity implements OnClickListener {
 			public void onItemClick(AdapterView<?> parent, View view,
                             int position, long id) {
             	
-				ListAdapter a = aofSelectionList.getAdapter();
+				@SuppressWarnings("unchecked")
+				ArrayAdapter<MessageModel> a = (ArrayAdapter<MessageModel>)aofSelectionList.getAdapter();
 				
-				currentAof = (MessageModel)a.getItem(position);
-				view.setBackgroundColor(getResources().getColor(R.color.secondaryblue));
 				
-            	// When clicked, show a toast with the TextView text
-                Toast.makeText(getApplicationContext(),
-                		"Selected: " + ((MessageModel)a.getItem(position)).getSubject(), //getCheckedItemPosition(), // getCheckedItemPosition(), 
-                		Toast.LENGTH_SHORT).show();
+				for(int i=0; i<a.getCount(); i++){
+					
+					if(i == position){
+						//set the current aof selection
+						currentAof = (MessageModel)a.getItem(position);
+						((MessageModel)a.getItem(position)).setSelected(true);
+					}
+					else{
+						((MessageModel)a.getItem(i)).setSelected(false);						
+					}
+					
+				}
+				
+				((ArrayAdapter<MessageModel>) a).notifyDataSetChanged();
+				
+//            	// When clicked, show a toast with the TextView text
+//                Toast.makeText(getApplicationContext(),
+//                		"Selected: " + ((MessageModel)a.getItem(position)).getSubject(),
+//                		Toast.LENGTH_SHORT).show();
             }
             
 		});
@@ -157,13 +167,12 @@ public class MainActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		
-		
-		if(v.getId() == R.id.btn_mask){
-			
-			//Validate the message is ready
-			validateMeassagePrep();
-			
-			if(currentAof != null){
+		if(currentAof != null){
+			if(v.getId() == R.id.btn_mask){
+				
+				//Validate the message is ready
+				validateMeassagePrep();
+								
 				//Create an Intent that launches the Memorize page
 				Intent obfIntent = new Intent(this, DisplayMessageObfuscatedActivity.class);
 				
@@ -172,17 +181,62 @@ public class MainActivity extends Activity implements OnClickListener {
 				
 				//Now start the activity
 				startActivity(obfIntent);
-			}	
-			
+					
+				
+			}
+			else if(v.getId() == R.id.btn_easy){
+				currentAof.calcNumWordsToHide(MemorizerConstants.EASY_FACTOR);
+				setDifficultyButton("Easy");
+			}
+			else if(v.getId() == R.id.btn_medium){
+				currentAof.calcNumWordsToHide(MemorizerConstants.MEDIUM_FACTOR);
+				setDifficultyButton("Medium");
+			}
+			else if(v.getId() == R.id.btn_hard){
+				currentAof.calcNumWordsToHide(MemorizerConstants.HARD_FACTOR);
+				setDifficultyButton("Hard");
+			}
 		}
-		else if(v.getId() == R.id.btn_easy){
-			currentAof.calcNumWordsToHide(MemorizerConstants.EASY_FACTOR);
+		else{
+			// When clicked, show a toast with the TextView text
+            Toast.makeText(getApplicationContext(),
+            		"Please select an Article of Faith", 
+            		Toast.LENGTH_SHORT).show();
 		}
-		else if(v.getId() == R.id.btn_medium){
-			currentAof.calcNumWordsToHide(MemorizerConstants.MEDIUM_FACTOR);
+		
+	}
+	
+	private void setDifficultyButton(String difficulty){
+		// TODO externalize strings and styles
+		if(difficulty == "Easy"){
+			//btnEasy.setTextColor(getResources().getColor(R.color.lightyellow));
+			btnEasy.setTypeface(null,Typeface.BOLD);
+			btnEasy.setBackgroundColor(getResources().getColor(R.color.rowhighlight));
 		}
-		else if(v.getId() == R.id.btn_hard){
-			currentAof.calcNumWordsToHide(MemorizerConstants.HARD_FACTOR);
+		else{
+			//btnEasy.setTextColor(getResources().getColor(android.R.color.black));
+			btnEasy.setTypeface(null,Typeface.NORMAL);
+			btnEasy.setBackgroundColor(getResources().getColor(R.color.lightgreen));
+		}
+		if(difficulty == "Medium"){
+			//btnMedium.setTextColor(getResources().getColor(R.color.lightyellow));
+			btnMedium.setTypeface(null,Typeface.BOLD);
+			btnMedium.setBackgroundColor(getResources().getColor(R.color.rowhighlight));
+		}
+		else{
+			//btnMedium.setTextColor(getResources().getColor(android.R.color.black));
+			btnMedium.setTypeface(null,Typeface.NORMAL);
+			btnMedium.setBackgroundColor(getResources().getColor(R.color.lightyellow));
+		}
+		if(difficulty == "Hard"){
+			//btnHard.setTextColor(getResources().getColor(R.color.lightyellow));
+			btnHard.setTypeface(null,Typeface.BOLD);
+			btnHard.setBackgroundColor(getResources().getColor(R.color.rowhighlight));
+		}
+		else{
+			//btnHard.setTextColor(getResources().getColor(android.R.color.black));
+			btnHard.setTypeface(null,Typeface.NORMAL);
+			btnHard.setBackgroundColor(getResources().getColor(R.color.lightred));
 		}
 		
 	}

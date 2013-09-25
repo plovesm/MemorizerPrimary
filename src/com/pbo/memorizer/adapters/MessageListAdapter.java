@@ -60,10 +60,19 @@ public class MessageListAdapter extends ArrayAdapter<MessageModel> {
 		MessageModel msg = msgList.get(position);
 		
 		if(msg != null){
-		Log.d("Message not null: ", msg.toString() + " Title: " + msg.getSubject() + " Body: " + msg.getMessage());
-		
-		msgHolder.msgTitle.setText(msg.getSubject());
-		msgHolder.msgBody.setText(msg.getMessage());
+			Log.d("Message not null: ", msg.toString() + " Title: " + msg.getSubject() + " Body: " + msg.getMessage() + " Selected: " + msg.isSelected());
+			
+			//Highlight the selection
+			if(msg.isSelected()){
+				row.setBackgroundColor(parent.getResources().getColor(R.color.rowhighlight));
+			}
+			else{
+				row.setBackgroundColor(parent.getResources().getColor(android.R.color.transparent));
+			}
+			
+			//Set the text of the row		
+			msgHolder.msgTitle.setText(msg.getSubject());
+			msgHolder.msgBody.setText(msg.getMessage());
 		}
 		else{
 			Log.d("Message is null: ", msgList.size() + " long"); 

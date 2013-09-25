@@ -130,7 +130,6 @@ public class DisplayMessageObfuscatedActivity extends Activity implements OnClic
 			//Now start the activity
 			startActivity(mainIntent);
 			
-			btnRetry.setBackgroundColor(getTitleColor());
 			
 		}
 		else if (v.getId() == R.id.view_obfuscated_msg){
